@@ -200,6 +200,7 @@ class StoryLibrary {
         
         const hasAudio = story.audioFile ? true : false;
         const hasIllustration = story.illustrationFile ? true : false;
+        const summary = marked.parse(story.summary);
 
         card.innerHTML = `
             <div class="p-4">
@@ -209,7 +210,7 @@ class StoryLibrary {
                     <span class="px-2 py-1 bg-purple-100 text-purple-800 text-sm rounded">${story.type}</span>
                     <span class="px-2 py-1 bg-green-100 text-green-800 text-sm rounded">${story.category}</span>
                 </div>
-                <p class="text-gray-600 mb-4 line-clamp-3">${story.summary}</p>
+                <p class="text-gray-600 mb-4 line-clamp-3">${summary}</p>
                 <div class="flex justify-between items-center">
                     <button class="read-story-btn px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
                         Read Story
